@@ -42,31 +42,28 @@
         <div class="col-md-7">
             <div class="bg-white border rounded-4 shadow-sm p-4">
                 <h4 class="fw-bold text-primary mb-4">Envoyez-nous un message</h4>
+<form method="POST" action="{{ route('properties.contact', $property) }}">
+    @csrf
 
-                <form action="#" method="POST" class="row g-3">
-                    @csrf
+    <!-- … autres champs … -->
 
-                    <div class="col-md-6">
-                        <label for="name" class="form-label">Nom complet</label>
-                        <input type="text" class="form-control form-control-lg shadow-sm" id="name" name="name" placeholder="Votre nom" required>
-                    </div>
+    <div class="mb-3">
+        <label class="form-label">Objet de la demande</label>
+        <select name="objet_demande" class="form-select" required>
+            <option value="">-- Choisir --</option>
+            <option value="infos">Recevoir plus d'infos / photos</option>
+            <option value="dossier">Recevoir le dossier complet</option>
+            <option value="rdv">Obtenir un rendez‑vous</option>
+            <option value="appel">Être appelé au plus vite</option>
+        </select>
+    </div>
 
-                    <div class="col-md-6">
-                        <label for="email" class="form-label">Adresse email</label>
-                        <input type="email" class="form-control form-control-lg shadow-sm" id="email" name="email" placeholder="ex : vous@mail.com" required>
-                    </div>
+    <!-- message -->
+    <textarea name="message" class="form-control" rows="4" required></textarea>
 
-                    <div class="col-12">
-                        <label for="message" class="form-label">Votre message</label>
-                        <textarea class="form-control form-control-lg shadow-sm" id="message" name="message" rows="5" placeholder="Écrivez votre message ici..." required></textarea>
-                    </div>
+    <button class="btn btn-primary mt-3">Envoyer ma demande</button>
+</form>
 
-                    <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-success btn-lg px-4 rounded-pill shadow">
-                            Envoyer
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

@@ -64,4 +64,9 @@ class Property extends Model
     {
         return $this->hasMany(PropertyImage::class);
     }
+    public function contactRequests()
+{
+    return $this->hasMany(ContactRequest::class);
+}
+
 }

@@ -5,21 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Mail;          // ← décommente si tu ajoutes l’envoi d’e‑mail
+// use App\Mail\ContactPropertyMail;             // ← idem
 
 class PropertyController extends Controller
 {
-    /* ---------- PUBLIC ---------- */
+    /* -----------------------------------------------------------------
+     |  PARTIE PUBLIQUE
+     |-----------------------------------------------------------------*/
     public function index(Request $request)
     {
         $query = Property::query();
 
-        $query->when($request->city, fn($q, $v) => $q->where('city', 'like', "%$v%"))
-              ->when($request->type, fn($q, $v) => $q->where('type', $v))
-              ->when($request->price_max, fn($q, $v) => $q->where('price', '<=', $v));
+        $query->when($request->city,  fn ($q, $v) => $q->where('city', 'like', "%$v%"))
+              ->when($request->type,  fn ($q, $v) => $q->where('type', $v))
+              ->when($request->price_max, fn ($q, $v) => $q->where('price', '<=', $v));
 
         return view('properties.index', [
             'properties' => $query->with('images')->latest()->paginate(9),
-            'filters' => $request->only(['city', 'type', 'price_max']),
+            'filters'    => $request->only(['city', 'type', 'price_max']),
         ]);
     }
 
@@ -29,7 +34,9 @@ class PropertyController extends Controller
         return view('properties.show', compact('property'));
     }
 
-    /* ---------- PRIVÉ ---------- */
+    /* -----------------------------------------------------------------
+     |  PARTIE PRIVÉE (auth)
+     |-----------------------------------------------------------------*/
     public function create()
     {
         return view('properties.create');
@@ -59,11 +66,8 @@ class PropertyController extends Controller
             'images.*'           => 'nullable|image|max:2048',
         ]);
 
-        // Si checkbox 'disponibilite' non cochée, forcer false
         $data['disponibilite'] = $r->boolean('disponibilite');
-
-        // Equipements : si null, on force tableau vide
-        $data['equipements'] = $r->input('equipements', []);
+        $data['equipements']   = $r->input('equipements', []);
 
         $property = Auth::user()->properties()->create($data);
 
@@ -112,26 +116,23 @@ class PropertyController extends Controller
             'delete_images.*'    => 'integer|exists:property_images,id',
         ]);
 
-        // Forcer booléen pour disponibilité
         $data['disponibilite'] = $r->boolean('disponibilite');
+        $data['equipements']   = $r->input('equipements', []);
 
-        // Equipements (tableau)
-        $data['equipements'] = $r->input('equipements', []);
-
-        // Supprimer les images cochées
-        if ($r->has('delete_images')) {
-            foreach ($r->input('delete_images') as $imageId) {
-                $image = $property->images()->find($imageId);
-                if ($image) {
-                    \Storage::disk('public')->delete($image->image_path);
-                    $image->delete();
+        // suppression des images cochées
+        if ($r->filled('delete_images')) {
+            foreach ($r->input('delete_images') as $imgId) {
+                $img = $property->images()->find($imgId);
+                if ($img) {
+                    Storage::disk('public')->delete($img->image_path);
+                    $img->delete();
                 }
             }
         }
 
         $property->update($data);
 
-        // Ajouter nouvelles images
+        // ajout des nouvelles images
         if ($r->hasFile('images')) {
             foreach ($r->file('images') as $file) {
                 $path = $file->store('properties', 'public');
@@ -150,13 +151,53 @@ class PropertyController extends Controller
         return back()->with('success', 'Annonce supprimée.');
     }
 
+    /* -----------------------------------------------------------------
+     |  PAGE D’ACCUEIL
+     |-----------------------------------------------------------------*/
     public function home()
     {
         $latestProperties = Property::with('images')
-            ->latest()
-            ->take(3)
-            ->get();
+                                    ->latest()
+                                    ->take(3)
+                                    ->get();
 
         return view('home', compact('latestProperties'));
     }
+
+    /* -----------------------------------------------------------------
+     |  CONTACT
+     |-----------------------------------------------------------------*/
+
+    /** Affiche le formulaire de contact pour un bien */
+    public function contact(Property $property)
+    {
+        return view('properties.contact', compact('property'));
+    }
+
+ /** Traite le formulaire « Nous contacter » d’une annonce. */
+public function contactSend(Request $request, Property $property)
+{
+    $data = $request->validate([
+        'last_name'      => 'required|string|max:100',
+        'first_name'     => 'required|string|max:100',
+        'email'          => 'required|email',
+        'phone'          => 'required|string|max:30',
+        'objet_demande'  => 'required|in:infos,dossier,rdv,appel',   // ✅ nouveau nom
+        'message'        => 'required|string|max:2000',
+    ]);
+
+    /* Enregistrement en BD */
+    $property->contactRequests()->create($data);
+
+    /* (Optionnel) Envoi d’e‑mail au propriétaire
+    Mail::to($property->user->email)
+        ->send(new ContactPropertyMail($property, $data));
+    */
+
+    return back()->with(
+        'success',
+        'Votre demande a bien été envoyée. Nous vous répondrons rapidement !'
+    );
+}
+
 }
