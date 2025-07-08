@@ -78,8 +78,9 @@
 @endsection
 
 @push('styles')
-<!-- Inclure Bootstrap Icons si pas déjà fait -->
+<!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 <style>
 .favorite-btn {
     border: none;
@@ -87,7 +88,7 @@
     padding: 0;
     cursor: pointer;
 }
-.favorite-btn .bi-heart-fill {
+.favorite-btn.active i {
     color: red;
 }
 </style>
@@ -95,35 +96,37 @@
 
 @push('scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const buttons = document.querySelectorAll('.favorite-btn');
-        let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+document.addEventListener("DOMContentLoaded", function () {
+    let favoris = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-        buttons.forEach(btn => {
-            const id = btn.dataset.id;
-            const icon = btn.querySelector('i');
+    document.querySelectorAll(".favorite-btn").forEach(function (btn) {
+        const id = parseInt(btn.dataset.id);
+        const icon = btn.querySelector("i");
 
-            if (favorites.includes(id)) {
-                icon.classList.remove('bi-heart');
-                icon.classList.add('bi-heart-fill');
+        if (favoris.includes(id)) {
+            btn.classList.add("active");
+            icon.classList.remove("bi-heart");
+            icon.classList.add("bi-heart-fill");
+        }
+
+        btn.addEventListener("click", function () {
+            const index = favoris.indexOf(id);
+
+            if (index !== -1) {
+                favoris.splice(index, 1);
+                btn.classList.remove("active");
+                icon.classList.remove("bi-heart-fill");
+                icon.classList.add("bi-heart");
+            } else {
+                favoris.push(id);
+                btn.classList.add("active");
+                icon.classList.remove("bi-heart");
+                icon.classList.add("bi-heart-fill");
             }
 
-            btn.addEventListener('click', function () {
-                let favs = JSON.parse(localStorage.getItem('favorites') || '[]');
-
-                if (favs.includes(id)) {
-                    favs = favs.filter(f => f !== id);
-                    icon.classList.remove('bi-heart-fill');
-                    icon.classList.add('bi-heart');
-                } else {
-                    favs.push(id);
-                    icon.classList.remove('bi-heart');
-                    icon.classList.add('bi-heart-fill');
-                }
-
-                localStorage.setItem('favorites', JSON.stringify(favs));
-            });
+            localStorage.setItem("favorites", JSON.stringify(favoris));
         });
     });
+});
 </script>
 @endpush

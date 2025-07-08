@@ -6,13 +6,28 @@ use App\Http\Controllers\{
     DashboardController,
     AuthController,
     RegisterController,
-    ContactRequestController   // ← contrôleur pour mise à jour du statut des demandes
+    FavorisController
+   
+       // ← contrôleur pour mise à jour du statut des demandes
 };
 
 /*----------------------------------------------------------
 | Pages publiques
 |---------------------------------------------------------*/
 Route::get('/', [PropertyController::class, 'home'])->name('home');
+
+use App\Models\Property;
+
+Route::get('/favoris', function () {
+    $ids = request()->query('ids');
+
+    if (!$ids) return view('favoris', ['favorites' => []]);
+
+    $idsArray = explode(',', $ids);
+    $favorites = Property::with('images')->whereIn('id', $idsArray)->get();
+
+    return view('favoris', compact('favorites'));
+})->name('favoris');
 
 /* Liste & détail des annonces accessibles à tous */
 Route::get('/properties',               [PropertyController::class, 'index']) ->name('properties.index');
@@ -58,8 +73,9 @@ Route::middleware('auth')->group(function () {
     Route::put   ('/properties/{property}',        [PropertyController::class,'update'])->name('properties.update');
     Route::delete('/properties/{property}',        [PropertyController::class,'destroy'])->name('properties.destroy');
 
-    /* === Mise à jour du statut d’une demande (bouton “OK” dans le dashboard) === */
-    Route::patch('/requests/{contactRequest}', [ContactRequestController::class, 'update'])
-        ->whereNumber('contactRequest')
-        ->name('requests.update');
+ // web.php
+Route::patch('/requests/{contactRequest}', [DashboardController::class, 'updateRequest'])
+    ->name('requests.update')
+    ->middleware('auth');
+
 });

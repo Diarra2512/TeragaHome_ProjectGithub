@@ -92,15 +92,17 @@
                                 </span>
                             </td>
                             <td class="text-center">
-                                <form method="POST" action="{{ route('requests.update',$req) }}">
-                                    @csrf @method('PATCH')
-                                    <select name="status" class="form-select form-select-sm d-inline-block w-auto me-2">
-                                        <option value="en_attente" @selected($req->status=='en_attente')>En attente</option>
-                                        <option value="en_cours"   @selected($req->status=='en_cours')>En cours</option>
-                                        <option value="traite"     @selected($req->status=='traite')>Traité</option>
-                                    </select>
-                                    <button class="btn btn-primary btn-sm">OK</button>
-                                </form>
+                                <form method="POST" action="{{ route('requests.update', $req) }}">
+    @csrf
+    @method('PATCH')
+    <select name="status" class="form-select form-select-sm d-inline-block w-auto me-2">
+        <option value="en_attente" @selected($req->status=='en_attente')>En attente</option>
+        <option value="en_cours"   @selected($req->status=='en_cours')>En cours</option>
+        <option value="traitée"     @selected($req->status=='traitée')>Traité</option>
+    </select>
+    <button class="btn btn-primary btn-sm">OK</button>
+</form>
+
                             </td>
                         </tr>
                     @endforeach

@@ -22,6 +22,8 @@
                 <li class="nav-item"><a class="nav-link nav-custom" href="/properties">Biens</a></li>
                 <li class="nav-item"><a class="nav-link nav-custom" href="/about">À propos</a></li>
                 <li class="nav-item"><a class="nav-link nav-custom" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link nav-custom" href="{{ route('favoris') }}">Favoris</a></li>
+
             </ul>
 
             <div class="d-flex gap-2 mt-3 mt-lg-0">
@@ -93,6 +95,7 @@
   </footer>
 
   @stack('styles')
+  @stack('scripts') {{-- 🔥 C’est CE QU’IL MANQUAIT --}}
   
   <style>
   /* ========== NAVIGATION ========== */
