@@ -15,6 +15,11 @@ use App\Http\Controllers\{
 | Pages publiques
 |---------------------------------------------------------*/
 Route::get('/', [PropertyController::class, 'home'])->name('home');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+
 
 use App\Models\Property;
 

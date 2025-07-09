@@ -20,7 +20,7 @@
 
         <!-- Infos bien -->
         <div class="col-md-6">
-            <h2 class="fw-bold text-primary">{{ $property->title }}</h2>
+            <h2 class="fw-bold tex-primary">{{ $property->title }}</h2>
             <p class="text-dark mb-1">{{ ucfirst($property->type) }} à {{ $property->city }}</p>
             @if($property->adresse)
                 <p class="text-dark small">📍 Adresse : {{ $property->adresse }}</p>
@@ -54,7 +54,7 @@
                     <h6 class="text-primary">Commodités</h6>
                     <ul class="list-inline">
                         @foreach ($property->equipements as $e)
-                            <li class="list-inline-item badge bg-primary-subtle text-primary border border-primary me-1 mb-1">
+                            <li class="list-inline-item badge bg-primary-subtle tex-primary border border-primary me-1 mb-1">
                                 {{ ucfirst(str_replace('_', ' ', $e)) }}
                             </li>
                         @endforeach
@@ -66,7 +66,7 @@
 
     <!-- Galerie d’images -->
     @if ($property->images->count() > 1)
-        <h5 class="mt-5 mb-3 fw-semibold text-primary">Autres images</h5>
+        <h5 class="mt-5 mb-3 fw-semibold tex-primary">Autres images</h5>
         <div class="row row-cols-2 row-cols-md-4 g-3">
             @foreach($property->images->slice(1) as $image)
                 <div class="col">
@@ -82,17 +82,5 @@
 @endsection
 
 @push('styles')
-<style>
-.text-primary {
-    color: #0d6efd !important;
-}
-.btn-outline-primary {
-    color: #0d6efd !important;
-    border-color: #0d6efd !important;
-}
-.btn-outline-primary:hover {
-    background-color: #0d6efd !important;
-    color: white !important;
-}
-</style>
+
 @endpush

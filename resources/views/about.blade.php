@@ -4,7 +4,7 @@
 <div class="container py-5">
     <!-- Titre -->
     <div class="text-center mb-5">
-        <h1 class="fw-bold text-primary">À propos de <span class="text-dark">TerrangaHome</span></h1>
+        <h1 class="fw-bold tex-primary">À propos de <span class="text-dark">TerrangaHome</span></h1>
         <p class="lead text-muted mt-3">
             Votre partenaire immobilier de confiance au Sénégal.
         </p>
@@ -18,7 +18,7 @@
         <div class="col-md-6">
             <p class="fs-5">
                 <strong>TerrangaHome</strong> est une agence immobilière digitale basée au Sénégal,
-                spécialisée dans la <span class="text-primary fw-semibold">vente</span>, la <span class="text-primary fw-semibold">location</span> et la <span class="text-primary fw-semibold">gestion de biens immobiliers</span>.
+                spécialisée dans la <span class="tex-primary fw-semibold">vente</span>, la <span class="text-primary fw-semibold">location</span> et la <span class="text-primary fw-semibold">gestion de biens immobiliers</span>.
             </p>
             <p>
                 Nous accompagnons nos clients de la recherche à la signature, avec transparence et professionnalisme. Notre plateforme rend l'immobilier accessible à tous, partout au Sénégal.
@@ -28,7 +28,7 @@
 
     <!-- Avantages -->
     <div class="mb-5">
-        <h3 class="fw-bold text-primary mb-3">Pourquoi choisir TerrangaHome ?</h3>
+        <h3 class="fw-bold tex-primary mb-3">Pourquoi choisir TerrangaHome ?</h3>
         <div class="row">
             @php
                 $avantages = [
@@ -50,7 +50,7 @@
 
     <!-- Équipe -->
     <div class="mb-5">
-        <h3 class="fw-bold text-primary mb-4">Notre équipe</h3>
+        <h3 class="fw-bold tex-primary mb-4">Notre équipe</h3>
         <div class="row">
             @php
                 $equipe = [

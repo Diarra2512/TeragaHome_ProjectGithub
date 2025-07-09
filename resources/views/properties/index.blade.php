@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5 py-5">
-    <h1 class="mb-4 text-center fw-bold text-primary">Biens disponibles</h1>
+    <h1 class="mb-4 text-center fw-bold tex-primary">Biens disponibles</h1>
 
     <!-- Filtres -->
     <form action="{{ route('properties.index') }}" method="GET" class="row g-3 mb-5 justify-content-center">
@@ -42,14 +42,14 @@
                          alt="Image du bien">
 
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold text-primary">{{ $property->title }}</h5>
+                        <h5 class="card-title fw-bold tex-primary">{{ $property->title }}</h5>
                         <p class="text-muted mb-1">
                             {{ $property->city }} – {{ ucfirst($property->type) }}
                         </p>
                         <p class="mb-2 small">
                             {{ Str::limit($property->description, 90) }}
                         </p>
-                        <p class="fw-semibold text-primary mb-3">
+                        <p class="fw-semibold tex-primary mb-3">
                             {{ number_format($property->price, 0, ',', ' ') }} FCFA
                         </p>
 
@@ -81,17 +81,7 @@
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-<style>
-.favorite-btn {
-    border: none;
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-}
-.favorite-btn.active i {
-    color: red;
-}
-</style>
+
 @endpush
 
 @push('scripts')

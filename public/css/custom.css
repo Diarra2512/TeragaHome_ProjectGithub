@@ -1,28 +1,28 @@
 /* Remplacer le bleu Bootstrap (.btn-primary, .bg-primary, etc.) par du vert */
 
 .btn-primary {
-    background-color: #32cd32 !important; /* vert Bootstrap success */
-    border-color: #32cd32 !important;
+    background-color: #51653f !important; /* vert Bootstrap success */
+    border-color: #51653f !important;
     color: #fff;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #32cd32 !important;
-    border-color: #32cd32 !important;
+    background-color: #51653f !important;
+    border-color: #51653f !important;
 }
 
 .bg-primary {
-    background-color: #32cd32 !important;
+    background-color: #51653f !important;
     color: #fff;
 }
 
-.text-primary {
-    color: #32cd32 !important;
+.tex-primary {
+    color: #51653f !important;
 }
 
 .navbar.bg-dark {
-    background-color: #32cd32 !important;
+    background-color: #51653f !important;
 }
 
 /* Lien actif */
@@ -47,12 +47,12 @@
     left: 0;
     height: 2px;
     width: 0%;
-    background-color: #32cd32;
+    background-color: #51653f;
     transition: width 0.3s ease;
 }
 
 .nav-custom:hover {
-    color: #32cd32 !important;
+    color: #51653f !important;
 }
 
 .nav-custom:hover::after {
@@ -60,12 +60,47 @@
 }
 .btn-outline-primary
 {
-    color: #32cd32 !important;
-    border-color: #32cd32 !important;
+    color: #51653f !important;
+    border-color: #51653f !important;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-    background-color: #32cd32 !important;
+    background-color: #51653f !important;
     color: #fff !important;
-    border-color: #32cd32 !important;
+    border-color: #51653f !important;
+    transition: all 0.3s ease;
 }
+/* Bouton favori */
+.favorite-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+.favorite-btn.active i {
+    color: red;
+    transition: color 0.3s ease;
+
+}
+
+
+/* Formulaires et boutons */
+label.form-label{color:#0d6efd;font-weight:600}
+input.form-control,select.form-select,textarea.form-control{border-color:#51653f}
+input.form-control:focus,select.form-select:focus,textarea.form-control:focus{
+    border-color:#51653f;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
+.btn-primary{background:#0d6efd;border-color:#51653f}
+.btn-primary:hover{background:#0843c9;border-color:#0843c9}
+.btn-outline-primary{color:#0d6efd;border-color:#0d6efd}
+.btn-outline-primary:hover{background:#0d6efd;color:#fff}
+.form-check-input:checked{background:#0d6efd;border-color:#0d6efd}
+.img-thumbnail.border-primary{border:2px solid #0d6efd}
+  
+
+label.form-label {color:#0d6efd;font-weight:600}
+input.form-control,select.form-select,textarea.form-control{border-color:#0d6efd}
+input.form-control:focus,select.form-select:focus,textarea.form-control:focus{border-color:#0d6efd;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
+.btn-primary{background:#0d6efd;border-color:#0d6efd}
+.btn-primary:hover{background:#0843c9;border-color:#0843c9}
+.btn-outline-primary{color:#0d6efd;border-color:#0d6efd}
+.btn-outline-primary:hover{background:#0d6efd;color:#fff}

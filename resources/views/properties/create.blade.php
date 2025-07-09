@@ -156,7 +156,7 @@
 
                         <!-- Boutons -->
                         <div class="col-12 d-flex justify-content-between">
-                            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary px-4">Annuler</a>
+                            <a href="{{ route('dashboard') }}" class="btn btn-outline-primary px-4">Annuler</a>
                             <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm">Publier l’annonce</button>
                         </div>
                     </form>
@@ -186,15 +186,6 @@ document.getElementById('images').addEventListener('change', e => {
 @endpush
 
 @push('styles')
-<style>
-/* Tout est déjà bleu grâce aux classes Bootstrap + overrides globaux ; on garde les labels bleu */
-label.form-label {color:#0d6efd;font-weight:600}
-input.form-control,select.form-select,textarea.form-control{border-color:#0d6efd}
-input.form-control:focus,select.form-select:focus,textarea.form-control:focus{border-color:#0d6efd;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
-.btn-primary{background:#0d6efd;border-color:#0d6efd}
-.btn-primary:hover{background:#0843c9;border-color:#0843c9}
-.btn-outline-primary{color:#0d6efd;border-color:#0d6efd}
-.btn-outline-primary:hover{background:#0d6efd;color:#fff}
-</style>
+
 @endpush
 @endsection

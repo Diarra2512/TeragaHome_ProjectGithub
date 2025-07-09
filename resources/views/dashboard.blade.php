@@ -6,7 +6,7 @@
     {{-- ENTÊTE --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold text-primary">Bienvenue {{ Auth::user()->name }} 👋</h2>
+            <h2 class="fw-bold tex-primary">Bienvenue {{ Auth::user()->name }} 👋</h2>
             <p class="text-muted mb-0">Gérez vos annonces</p>
         </div>
 
@@ -54,10 +54,10 @@
                             <p class="small text-truncate" title="{{ $property->description }}">
                                 {{ $property->description }}
                             </p>
-                            <p class="fw-bold text-primary">{{ number_format($property->price,0,',',' ') }} FCFA</p>
+                            <p class="fw-bold tex-primary">{{ number_format($property->price,0,',',' ') }} FCFA</p>
 
                             <div class="mt-auto d-flex gap-2">
-                                <a href="{{ route('properties.edit',$property) }}" class="btn btn-success btn-sm">
+                                <a href="{{ route('properties.edit',$property) }}" class="btn btn-primary btn-sm">
                                     <i class="bi bi-pencil-square"></i> Modifier
                                 </a>
                                 <form action="{{ route('properties.destroy',$property) }}" method="POST"
