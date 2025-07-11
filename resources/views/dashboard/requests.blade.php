@@ -6,7 +6,7 @@
     {{-- ENTÊTE --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold text-primary">Demandes reçues</h2>
+            <h2 class="fw-bold tex-primary">Demandes reçues</h2>
             <p class="text-muted mb-0">Voici les demandes que vos visiteurs ont envoyées</p>
         </div>
 

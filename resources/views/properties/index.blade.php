@@ -75,6 +75,18 @@
         @endforelse
     </div>
 </div>
+
+<!-- Déposer une annonce -->
+<section class="bg-light py-5 container">
+    <div class="container text-center">
+        <i class="bi bi-house-door-fill fs-1 tex-primary mb-3"></i>
+        <h2 class="fw-bold mb-3 tex-primary">Vous êtes propriétaire ?</h2>
+        <p class="mb-4 text-secondary">Publiez votre bien immobilier en quelques clics et atteignez un large public partout au Sénégal.</p>
+        <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg shadow px-4 py-2 rounded-pill">
+            <i class="bi bi-upload me-2"></i> Déposer une annonce
+        </a>
+    </div>   
+</section>
 @endsection
 
 @push('styles')

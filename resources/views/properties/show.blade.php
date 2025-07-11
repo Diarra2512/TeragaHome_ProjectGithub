@@ -25,7 +25,7 @@
             @if($property->adresse)
                 <p class="text-dark small">📍 Adresse : {{ $property->adresse }}</p>
             @endif
-            <h4 class="text-primary fw-bold mb-3">
+            <h4 class="tex-primary fw-bold mb-3">
                 {{ number_format($property->price, 0, ',', ' ') }} FCFA
             </h4>
 
@@ -44,14 +44,14 @@
 
             <!-- Description -->
             <div class="mt-4">
-                <h5 class="text-primary">Description</h5>
+                <h5 class="tex-primary">Description</h5>
                 <p class="text-dark">{{ $property->description }}</p>
             </div>
 
             <!-- Équipements -->
             @if (!empty($property->equipements) && is_array($property->equipements))
                 <div class="mt-3">
-                    <h6 class="text-primary">Commodités</h6>
+                    <h6 class="tex-primary">Commodités</h6>
                     <ul class="list-inline">
                         @foreach ($property->equipements as $e)
                             <li class="list-inline-item badge bg-primary-subtle tex-primary border border-primary me-1 mb-1">

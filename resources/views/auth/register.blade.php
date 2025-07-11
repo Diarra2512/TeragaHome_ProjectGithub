@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5 d-flex justify-content-center align-items-center min-vh-100">
+<div class=" py-5 d-flex justify-content-center align-items-center min-vh-100"
+style="background-image: url('/images/famille.jpg'); background-size: cover; background-position: center ; ">
     <div class="card shadow-lg border-0 w-100" style="max-width: 500px;">
         <div class="card-body p-4">
-            <h3 class="text-center mb-4 text-primary">Créer un compte</h3>
+            <h3 class="text-center mb-4 tex-primary">Créer un compte</h3>
 
             @if($errors->any())
                 <div class="alert alert-danger">
@@ -20,22 +21,22 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="name" class="form-label text-primary fw-semibold">Nom complet</label>
+                    <label for="name" class="form-label tex-primary fw-semibold">Nom complet</label>
                     <input type="text" name="name" id="name" class="form-control border-primary shadow-sm" required value="{{ old('name') }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label text-primary fw-semibold">Adresse email</label>
+                    <label for="email" class="form-label tex-primary fw-semibold">Adresse email</label>
                     <input type="email" name="email" id="email" class="form-control border-primary shadow-sm" required value="{{ old('email') }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label text-primary fw-semibold">Mot de passe</label>
+                    <label for="password" class="form-label tex-primary fw-semibold">Mot de passe</label>
                     <input type="password" name="password" id="password" class="form-control border-primary shadow-sm" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="password_confirmation" class="form-label text-primary fw-semibold">Confirmation du mot de passe</label>
+                    <label for="password_confirmation" class="form-label tex-primary fw-semibold">Confirmation du mot de passe</label>
                     <input type="password" name="password_confirmation" id="password_confirmation" class="form-control border-primary shadow-sm" required>
                 </div>
 
@@ -43,7 +44,7 @@
             </form>
 
             <div class="text-center mt-3">
-                <a href="{{ route('login') }}" class="text-primary text-decoration-none">
+                <a href="{{ route('login') }}" class="tex-primary text-decoration-none">
                     Vous avez déjà un compte ? <strong>Se connecter</strong>
                 </a>
             </div>
@@ -60,33 +61,30 @@
     h3.text-primary,
     label.text-primary,
     a.text-primary {
-        color: #0d6efd !important;
+        color: #51653f !important;
     }
 
-    /* Inputs bordure et focus */
-    input.form-control {
-        border-color: #0d6efd !important;
-    }
-    input.form-control:focus {
-        border-color: #0d6efd !important;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+
+    
+
+    /* Boutons */
+    .btn-primary {
+        background-color: #51653f !important;
+        border-color: #51653f !important;
     }
 
-    /* Bouton */
-    button.btn-primary {
-        background-color: #0d6efd !important;
-        border-color: #0d6efd !important;
-        color: #fff !important;
-    }
-    button.btn-primary:hover {
-        background-color: #0843c9 !important;
-        border-color: #0843c9 !important;
+    .btn-primary:hover {
+        background-color: #3e4d33 !important;
+        border-color: #3e4d33 !important;
     }
 
-    /* Lien hover */
-    a.text-primary:hover {
-        color: #0843c9 !important;
-        text-decoration: underline !important;
+    /* Alertes */
+    .alert-danger {
+        background-color: #f8d7da !important;
+        color: #721c24 !important;
     }
+
+    
+    
 </style>
 @endpush

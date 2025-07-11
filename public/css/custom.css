@@ -12,7 +12,7 @@
     border-color: #51653f !important;
 }
 
-.bg-primary {
+.bg-prim {
     background-color: #51653f !important;
     color: #fff;
 }
@@ -83,24 +83,93 @@
 
 }
 
+/* Bouton primaire */
+button.btn-primary {
+        background-color: #51653f !important;
+        border-color: #51653f !important;
+        color: #fff !important;
+    }
+    button.btn-primary:hover {
+        background-color: #51653f !important;
+        border-color: #51653f !important;
+    }
+
+    a.tex-primary:hover {
+        color: #51653f !important;
+        text-decoration: underline !important;
+    }
+
+    /* Inputs bordure et focus */
+    input.form-control {
+        border-color: #51653f !important;
+    }
+    input.form-control:focus {
+        border-color: #51653f !important;
+        box-shadow: 0 0 0 0.25rem rgba(81, 101, 63, 0.25) !important;
+    }
+
+    .border-prim {
+    border-color: #51653f !important;
+    color: #51653f !important;
+
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+   &:focus {
+       box-shadow: 0 0 0 0.25rem rgba(81, 101, 63, 0.25) !important;
+   }
+
+   
+}
+.form-check-input {
+    border-color: #51653f !important;
+    
+
+}
+.form-check-input:checked {
+    background-color: #51653f !important;
+    border-color: #51653f !important;
+}
+
+.alert-info {
+    background-color: rgba(81, 101, 63, 0.25) !important;
+    color: #0f5132 !important;
+   
+}
+
 
 /* Formulaires et boutons */
-label.form-label{color:#0d6efd;font-weight:600}
-input.form-control,select.form-select,textarea.form-control{border-color:#51653f}
-input.form-control:focus,select.form-select:focus,textarea.form-control:focus{
-    border-color:#51653f;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
-.btn-primary{background:#0d6efd;border-color:#51653f}
-.btn-primary:hover{background:#0843c9;border-color:#0843c9}
-.btn-outline-primary{color:#0d6efd;border-color:#0d6efd}
-.btn-outline-primary:hover{background:#0d6efd;color:#fff}
-.form-check-input:checked{background:#0d6efd;border-color:#0d6efd}
-.img-thumbnail.border-primary{border:2px solid #0d6efd}
+label.form-label{
+    color:#51653f;
+    font-weight:600;
+}
+.input.form-control,select.form-select,textarea.form-control{
+    border-color:#51653f;
+}
+.input.form-control:focus,select.form-select:focus,textarea.form-control:focus{
+    border-color:#51653f;
+    box-shadow:0 0 0 .25rem rgba(81, 101, 63, 0.25);
+}
+.btn-primary{background:#51653f;border-color:#51653f}
+.btn-primary:hover{background:#51653f;border-color:#51653f}
+.btn-outline-primary{color:#51653f;border-color:#51653f}
+.btn-outline-primary:hover{background:#51653f;color:#fff}
+.form-check-input:checked{background:#51653f;border-color:#51653f}
+.img-thumbnail.border-primary{border:2px solid #51653f}
   
 
-label.form-label {color:#0d6efd;font-weight:600}
-input.form-control,select.form-select,textarea.form-control{border-color:#0d6efd}
-input.form-control:focus,select.form-select:focus,textarea.form-control:focus{border-color:#0d6efd;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
-.btn-primary{background:#0d6efd;border-color:#0d6efd}
-.btn-primary:hover{background:#0843c9;border-color:#0843c9}
-.btn-outline-primary{color:#0d6efd;border-color:#0d6efd}
-.btn-outline-primary:hover{background:#0d6efd;color:#fff}
+label.form-label {color:#51653f;font-weight:600}
+input.form-control,select.form-select,textarea.form-control{border-color:#51653f}
+input.form-control:focus,select.form-select:focus,textarea.form-control:focus{border-color:#51653f;box-shadow:0 0 0 .25rem rgba(81, 101, 63, 0.25)}
+.btn-primary{background:#51653f;border-color:#51653f}
+.btn-primary:hover{background:#51653f;border-color:#51653f}
+.btn-outline-primary{color:#51653f;border-color:#51653f}
+.btn-outline-primary:hover{background:#51653f;color:#fff}
+
+
+.btn-primary{background:#51653f!important;border-color:#51653f!important;color:#fff!important}
+.btn-primary:hover{background:#51653f!important;border-color:#51653f!important}
+.btn-outline-primary{color:#51653f!important;border-color:#51653f!important}
+.btn-outline-primary:hover{background:#51653f!important;color:#fff!important}
+.form-control:focus,.form-select:focus{border-color:#51653f!important;box-shadow:0 0 0 .25rem rgba(81, 101, 63, 0.25)!important}
+.alert-primary{background:#cfe2ff;border-color:#b6d4fe;color:#51653f}
+
