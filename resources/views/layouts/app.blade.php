@@ -28,7 +28,11 @@
                 <li class="nav-item"><a class="nav-link  nav-custom" href="/">Accueil</a></li>
                 <li class="nav-item"><a class="nav-link nav-custom" href="/properties">Biens</a></li>
                 <li class="nav-item"><a class="nav-link nav-custom" href="/about">À propos</a></li>
-                <li class="nav-item"><a class="nav-link nav-custom" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link nav-custom" href="{{ route('contact') }}">Contact</a></li>
+
+
+
+
                 <li class="nav-item"><a class="nav-link nav-custom" href="{{ route('favoris') }}">Favoris</a></li>
 
             </ul>
