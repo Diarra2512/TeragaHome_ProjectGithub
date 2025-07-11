@@ -87,8 +87,11 @@
     {{-- ENTÊTE --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
+
             <h2 class="fw-bold">📨 Demandes reçues</h2>
             <p class="text-muted mb-0">Voici les demandes envoyées par vos visiteurs</p>
+
+
         </div>
 
         <div class="d-flex gap-2">

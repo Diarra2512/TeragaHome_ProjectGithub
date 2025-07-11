@@ -1,73 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    body {
-        background-color: #f8f5f0;
-    }
 
-    .card {
-        background-color: #ffffff;
-        border: none;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-    }
+<div class=" py-5" 
+style="background-image: url('/images/famille.jpg'); background-size: cover; background-position: center ; ">
 
-    h1, .form-label {
-        color: #344e41;
-    }
 
-    .form-control,
-    .form-select {
-        border-radius: 8px;
-        border: 1px solid #ced4da;
-        transition: border-color 0.3s ease;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-        border-color: #607d3b;
-        box-shadow: 0 0 0 0.2rem rgba(96, 125, 59, 0.25);
-    }
-
-    .btn-primary {
-        background-color: #607d3b;
-        border-color: #607d3b;
-    }
-
-    .btn-primary:hover {
-        background-color: #4e6830;
-        border-color: #4e6830;
-    }
-
-    .btn-outline-primary {
-        color: #607d3b;
-        border-color: #607d3b;
-    }
-
-    .btn-outline-primary:hover {
-        background-color: #607d3b;
-        color: white;
-    }
-
-    .form-check-label {
-        color: #555;
-    }
-
-    .alert-primary {
-        background-color: #eef5ea;
-        border-left: 4px solid #607d3b;
-        color: #344e41;
-    }
-
-    #previews img {
-        border-radius: 10px;
-        border: 1px solid #ccc;
-    }
-
-</style>
-
-<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-10">
 

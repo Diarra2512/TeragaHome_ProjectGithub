@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Hero Section avec carrousel de fond -->
-<div id="heroCarousel" class="carousel slide carousel-fade w-100 vh-100  position-relative" data-bs-ride="carousel" data-bs-interval="4000">
+<div id="heroCarousel" class="carousel slide carousel-fade w-100 vh-100  position-relative" data-bs-ride="carousel" data-bs-interval="3000">
     <!-- Slides -->
     <div class="carousel-inner w-100 h-100">
         <div class="carousel-item active w-100 h-100 bg-cover" style="background-image: url('/images/appart1.jpg'); background-size: cover; background-position: center;"></div>
@@ -14,8 +14,16 @@
     <!-- Contenu texte centré -->
     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center text-white text-center px-4 z-2" style="background-color: rgba(0,0,0,0.4);">
         <div>
-            <h1 class="display-4 fw-bold mb-3">Bienvenue sur TerrangaHome</h1>
-            <p class="lead mb-4">Trouvez la maison de vos rêves au Sénégal.</p>
+            <h1 class="display-4 fw-bold mb-3">Bienvenue sur TerangaHome</h1>
+            <p class="lead mb-4">PARCE QU’AU SÉNÉGAL, L’HOSPITALITÉ COMMENCE PAR UN BON TOIT.</p>
+            <p class="toprr">La chaleur d’un chez-soi, partout au Sénégal.
+Découvrez notre plateforme dédiée à la location et
+l’achat de logements au Sénégal. <br> Recherchez facilement des appartements, maisons,
+studios ou villas adaptés à vos besoins. <br>
+Grâce à notre interface fluide et à nos annonces vérifiées,
+trouvez un logement en toute confiance. <br> Commencez votre recherche maintenant. La Téranga
+vous attend
+</p>
          <!--   <a href="{{ route('properties.index') }}" class="btn btn-lg btn-hero px-4  btn-outline-primary py-2 mt-3 shadow rounded-pill fw-semibold">
                 <i class="bi bi-search me-2"></i> Explorer les biens
             </a>  -->
@@ -30,11 +38,11 @@
         <form action="{{ route('properties.index') }}" method="GET" class="row g-3 align-items-end justify-content-center">
             <div class="col-md-3">
                 <label class="form-label tex-primary fw-semibold">Ville</label>
-                <input type="text" name="city" class="form-control rounded-pill shadow-sm ps-4 border-primary" placeholder="🏙️ Ville (ex: Dakar)">
+                <input type="text" name="city" class="form-control rounded-pill shadow-sm ps-4 border-prim" placeholder="🏙️ Ville (ex: Dakar)">
             </div>
             <div class="col-md-3">
                 <label class="form-label tex-primary fw-semibold">Type de bien</label>
-                <select name="type" class="form-select rounded-pill shadow-sm ps-4 border-primary">
+                <select name="type" class="form-select rounded-pill shadow-sm ps-4 border-prim">
                     <option value="">🏠 Choisir un type</option>
                     <option value="Maison">Maison</option>
                     <option value="Appartement">Appartement</option>
@@ -44,7 +52,7 @@
             </div>
             <div class="col-md-3">
                 <label class="form-label tex-primary fw-semibold">Prix max (FCFA)</label>
-                <input type="number" name="max_price" class="form-control rounded-pill shadow-sm ps-4 border-primary" placeholder="💰 ex: 30000000">
+                <input type="number" name="max_price" class="form-control rounded-pill shadow-sm ps-4 border-prim" placeholder="💰 ex: 30000000">
             </div>
             <div class="col-md-2 d-grid">
                <button type="submit" class="btn btn-primary py-2 fw-semibold rounded-pill">
@@ -54,7 +62,6 @@
         </form>
     </div>
 </section>
-
 <!-- Biens en vedette -->
 <section class="container my-5">
     <h2 class="text-center mb-4 fw-bold tex-primary">Biens en vedette</h2>
@@ -65,10 +72,20 @@
                 $imageUrl = $firstImage ? asset('storage/'.$firstImage->image_path) : asset('images/default-property.jpg');
             @endphp
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 hover-shadow rounded-4">
+                <div class="card border-0 shadow-sm h-100 hover-shadow rounded-4 position-relative">
+
+                    <!-- Badge contrat -->
+                    @if($property->contrat === 'vente')
+                        <span class="badge-contract badge-vente">À vendre</span>
+                    @elseif($property->contrat === 'location')
+                        <span class="badge-contract badge-location">À louer</span>
+                    @elseif($property->contrat === 'colocation')
+                        <span class="badge-contract badge-colocation">Colocation</span>
+                    @endif
+
                     <img src="{{ $imageUrl }}" class="card-img-top rounded-top-4" style="height:230px; object-fit:cover;" alt="{{ $property->title }}">
                     <div class="card-body d-flex flex-column">
-                        <span class="badge bg-primary mb-2">{{ ucfirst($property->type) }}</span>
+                        <span class="badge bg-prim mb-2">{{ ucfirst($property->type) }}</span>
                         <h5 class="card-title tex-primary fw-bold">{{ $property->title }}</h5>
                         <p class="card-text text-muted small">{{ $property->city }}</p>
                         <p class="card-text flex-grow-1">{{ Str::limit($property->description, 100) }}</p>
@@ -81,7 +98,7 @@
 </section>
 
 <!-- Déposer une annonce -->
-<section class="bg-light py-5">
+<section class="bg-light py-5 container">
     <div class="container text-center">
         <i class="bi bi-house-door-fill fs-1 tex-primary mb-3"></i>
         <h2 class="fw-bold mb-3 tex-primary">Vous êtes propriétaire ?</h2>
@@ -89,10 +106,39 @@
         <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg shadow px-4 py-2 rounded-pill">
             <i class="bi bi-upload me-2"></i> Déposer une annonce
         </a>
-    </div>
+    </div>   
 </section>
 
 @endsection
 @push('styles')
 
+@endpush
+@push('styles')
+<style>
+    .badge-contract {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 0.35em 0.7em;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: 0.3rem;
+        color: white;
+        z-index: 10;
+        text-transform: uppercase;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .badge-vente {
+        background-color: #28a745;
+    }
+
+    .badge-location {
+        background-color: #007bff;
+    }
+
+    .badge-colocation {
+        background-color: #17a2b8;
+    }
+</style>
 @endpush

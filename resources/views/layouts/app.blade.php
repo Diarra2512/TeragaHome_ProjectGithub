@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TerrangaHome</title>
+    <title>TerangaHome</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- CSS Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
 </head>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <body>
  
-
   <nav class="navbar navbar-expand-lg bg-white h-45 fixed-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold tex-primary" href="{{ route('home') }}">TerrangaHome</a>
+        <a class="navbar-brand fw-bold tex-primary" href="{{ route('home') }}">TerangaHome</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
       @yield('content')
   </main>
 
-  <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+  <footer class="bg-dark text-white pt-5 pb-4 ">
     <div class="container text-md-left">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
@@ -101,6 +101,33 @@
     </div>
   </footer>
 
+
+  <!-- Back to Top Button -->
+<button id="backToTopBtn" class="btn btn-primary position-fixed" style="bottom: 30px; right: 30px; display: none; z-index: 999;">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<script>
+    // back-to-top.js ou dans app.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("backToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    // Affiche après 200px
+    if (window.scrollY > 200) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+</script>
   @stack('styles')
   @stack('scripts')
   

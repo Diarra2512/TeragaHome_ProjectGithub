@@ -5,7 +5,7 @@
 
     <!-- En‑tête -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold text-primary m-0">✏️ Modifier l’annonce</h2>
+        <h2 class="fw-bold tex-primary m-0">✏️ Modifier l’annonce</h2>
         <a href="{{ route('dashboard') }}" class="btn btn-outline-primary rounded-pill shadow-sm">
             <i class="bi bi-arrow-left me-1"></i> Retour
         </a>
@@ -15,7 +15,7 @@
         <div class="alert alert-primary">{{ session('success') }}</div>
     @endif
 
-    <div class="card shadow-sm rounded-4 p-4 border border-primary">
+    <div class="card shadow-sm rounded-4 p-4 border border-prim">
         <form method="POST" action="{{ route('properties.update', $property) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -24,13 +24,13 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label tex-primary fw-semibold">Titre *</label>
-                    <input type="text" name="title" class="form-control border-primary"
+                    <input type="text" name="title" class="form-control border-prim"
                            value="{{ old('title',$property->title) }}" required>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label tex-primary fw-semibold">Type *</label>
-                    <select name="type" class="form-select border-primary" required>
+                    <select name="type" class="form-select border-prim" required>
                         @foreach(['villa','appartement','terrain'] as $t)
                             <option value="{{ $t }}" @selected($property->type===$t)>{{ ucfirst($t) }}</option>
                         @endforeach
@@ -39,50 +39,50 @@
 
                 <div class="col-md-6">
                     <label class="form-label tex-primary fw-semibold">Ville *</label>
-                    <input type="text" name="city" class="form-control border-primary"
+                    <input type="text" name="city" class="form-control border-prim"
                            value="{{ old('city',$property->city) }}" required>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label tex-primary fw-semibold">Adresse / Quartier</label>
-                    <input type="text" name="adresse" class="form-control border-primary"
+                    <input type="text" name="adresse" class="form-control border-prim"
                            value="{{ old('adresse',$property->adresse) }}">
                 </div>
 
                 <div class="col-md-3">
                     <label class="form-label tex-primary">Surface (m²)</label>
-                    <input type="number" name="surface" class="form-control border-primary"
+                    <input type="number" name="surface" class="form-control border-prim"
                            value="{{ old('surface',$property->surface) }}">
                 </div>
                 <div class="col-md-3">
                     <label class="form-label tex-primary">Pièces</label>
-                    <input type="number" name="nb_pieces" class="form-control border-primary"
+                    <input type="number" name="nb_pieces" class="form-control border-prim"
                            value="{{ old('nb_pieces',$property->nb_pieces) }}">
                 </div>
                 <div class="col-md-3">
                     <label class="form-label tex-primary">Chambres</label>
-                    <input type="number" name="nb_chambres" class="form-control border-primary"
+                    <input type="number" name="nb_chambres" class="form-control border-prim"
                            value="{{ old('nb_chambres',$property->nb_chambres) }}">
                 </div>
                 <div class="col-md-3">
                     <label class="form-label tex-primary">Salles de bain</label>
-                    <input type="number" name="nb_sdb" class="form-control border-primary"
+                    <input type="number" name="nb_sdb" class="form-control border-prim"
                            value="{{ old('nb_sdb',$property->nb_sdb) }}">
                 </div>
 
                 <div class="col-md-3">
                     <label class="form-label tex-primary">Étage</label>
-                    <input type="number" name="etage" class="form-control border-primary"
+                    <input type="number" name="etage" class="form-control border-prim"
                            value="{{ old('etage',$property->etage) }}">
                 </div>
                 <div class="col-md-3">
                     <label class="form-label tex-primary">Année constr.</label>
-                    <input type="number" name="annee_construction" class="form-control border-primary"
+                    <input type="number" name="annee_construction" class="form-control border-prim"
                            value="{{ old('annee_construction',$property->annee_construction) }}">
                 </div>
                 <div class="col-md-3">
                     <label class="form-label tex-primary">État</label>
-                    <select name="etat" class="form-select border-primary">
+                    <select name="etat" class="form-select border-prim">
                         @foreach(['neuf','bon','renover'] as $e)
                             <option value="{{ $e }}" @selected($property->etat===$e)>{{ ucfirst($e) }}</option>
                         @endforeach
@@ -90,7 +90,7 @@
                 </div>
                 <div class="col-md-3">
                     <label class="form-label tex-primary fw-semibold">Contrat *</label>
-                    <select name="contrat" class="form-select border-primary" required>
+                    <select name="contrat" class="form-select border-prima" required>
                         @foreach(['vente','location','colocation'] as $c)
                             <option value="{{ $c }}" @selected($property->contrat===$c)>{{ ucfirst($c) }}</option>
                         @endforeach
@@ -99,23 +99,23 @@
 
                 <div class="col-md-4">
                     <label class="form-label tex-primary fw-semibold">Prix (FCFA) *</label>
-                    <input type="number" name="price" class="form-control border-primary"
+                    <input type="number" name="price" class="form-control border-prim"
                            value="{{ old('price',$property->price) }}" required>
                 </div>
                 <div class="col-md-4">
                     <label class="form-label tex-primary">Charges (FCFA)</label>
-                    <input type="number" name="charges" class="form-control border-primary"
+                    <input type="number" name="charges" class="form-control border-prim"
                            value="{{ old('charges',$property->charges) }}">
                 </div>
                 <div class="col-md-4">
                     <label class="form-label tex-primary">Caution (FCFA)</label>
-                    <input type="number" name="caution" class="form-control border-primary"
+                    <input type="number" name="caution" class="form-control border-prim"
                            value="{{ old('caution',$property->caution) }}">
                 </div>
 
                 <div class="col-md-4">
                     <label class="form-label tex-primary">Disponible ?</label>
-                    <select name="disponibilite" class="form-select border-primary">
+                    <select name="disponibilite" class="form-select border-prim">
                         <option value="1" @selected($property->disponibilite)>Oui</option>
                         <option value="0" @selected(!$property->disponibilite)>Non</option>
                     </select>
@@ -130,7 +130,7 @@
                     @foreach(['climatisation','piscine','jardin','garage','balcon','ascenseur','securite','cuisine_equipee','internet'] as $e)
                         <div class="col-md-4 col-sm-6">
                             <div class="form-check">
-                                <input class="form-check-input border-primary"
+                                <input class="form-check-input border-prim"
                                        type="checkbox" name="equipements[]"
                                        value="{{ $e }}" id="eq-{{ $e }}"
                                        @checked(in_array($e,$eq))>
@@ -146,7 +146,7 @@
             {{-- ---------- 3. Description ---------- --}}
             <div class="mt-4">
                 <label class="form-label fw-semibold tex-primary">Description *</label>
-                <textarea name="description" rows="5" class="form-control border-primary"
+                <textarea name="description" rows="5" class="form-control border-prim"
                           required>{{ old('description',$property->description) }}</textarea>
             </div>
 
@@ -156,7 +156,7 @@
                 <div class="d-flex flex-wrap gap-2">
                     @foreach($property->images as $img)
                         <div class="text-center">
-                            <img src="{{ asset('storage/'.$img->image_path) }}" class="img-thumbnail border-primary"
+                            <img src="{{ asset('storage/'.$img->image_path) }}" class="img-thumbnail border-prim"
                                  style="max-height:120px">
                             <div class="form-check mt-1">
                                 <input class="form-check-input border-primary"

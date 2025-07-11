@@ -47,11 +47,31 @@
         padding: 15px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
+
+    .btn-outline-primary {
+        color: #3d4b2e;
+        border-color: #3d4b2e;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #3d4b2e;
+        color: #fff;
+    }
 </style>
 
 <div class="dashboard-admin">
+
+    <!-- Bouton retour à l'accueil -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="{{ route('home') }}" class="btn btn-outline-primary rounded-pill shadow-sm">
+            <i class="bi bi-house-door"></i> Accueil
+        </a>
+    </div>
+
+    <!-- Titre -->
     <h2>Statistiques</h2>
 
+    <!-- Cartes statistiques -->
     <div class="row mb-5">
         <div class="col-md-4 mb-3">
             <div class="card text-center p-4">
@@ -73,6 +93,7 @@
         </div>
     </div>
 
+    <!-- Graphiques -->
     <div class="row">
         <div class="col-md-6 mb-4">
             <canvas id="userChart" height="300"></canvas>

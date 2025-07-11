@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="container py-5 mt-4">
-    <div class="row gy-5">
+<section class="container py-5  mt-4">
+    <div class="row gy-5" >
         <!-- Infos de contact -->
         <div class="col-md-5">
             <div class="mb-4">

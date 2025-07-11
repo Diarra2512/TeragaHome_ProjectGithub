@@ -18,6 +18,7 @@
                  style="object-fit: cover;" alt="Background blurred">
         </div>
 
+
         <!-- Carousel images au premier plan -->
         <div class="carousel-inner position-relative text-center" style="z-index: 1;">
             @foreach($property->images as $index => $image)
@@ -25,6 +26,7 @@
                     <img src="{{ asset('storage/' . $image->image_path) }}" 
                          class="d-block mx-auto img-fluid rounded"
                          style="max-height: 400px; object-fit: contain;">
+
                 </div>
             @endforeach
         </div>

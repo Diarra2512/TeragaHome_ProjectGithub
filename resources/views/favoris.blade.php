@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h2 class="fw-bold text-primary mb-4">❤️ Mes favoris</h2>
+    <h2 class="fw-bold tex-primary mb-4">❤️ Mes favoris</h2>
 
    
 
@@ -15,10 +15,10 @@
                         <img src="{{ $p->images->first() ? asset('storage/'.$p->images->first()->image_path) : asset('images/default-property.jpg') }}"
                              class="card-img-top" style="height:200px; object-fit:cover;">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">{{ $p->title }}</h5>
+                            <h5 class="card-title tex-primary">{{ $p->title }}</h5>
                             <p class="text-muted">{{ $p->city }} – {{ $p->type }}</p>
                             <p>{{ Str::limit($p->description, 90) }}</p>
-                            <p class="fw-bold text-primary">{{ number_format($p->price, 0, ',', ' ') }} FCFA</p>
+                            <p class="fw-bold tex-primary">{{ number_format($p->price, 0, ',', ' ') }} FCFA</p>
                             <a href="{{ route('properties.show', $p->id) }}" class="btn btn-sm btn-outline-primary">Voir</a>
                         </div>
                     </div>

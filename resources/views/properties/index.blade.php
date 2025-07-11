@@ -25,7 +25,7 @@
                    value="{{ $filters['price_max'] ?? '' }}">
         </div>
         <div class="col-md-2 d-grid">
-            <button class="btn btn-primary fw-semibold">Filtrer</button>
+            <button class="btn btn-primary fw-semibold">Rechercher</button>
         </div>
     </form>
 
@@ -33,8 +33,17 @@
     <div class="row g-4">
         @forelse ($properties as $property)
             <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0">
+                <div class="card h-100 shadow-sm border-0 position-relative">
                     @php $first = $property->images->first(); @endphp
+
+                    <!-- Badge contrat -->
+                    @if($property->contrat === 'vente')
+                        <span class="badge-contract badge-vente">À vendre</span>
+                    @elseif($property->contrat === 'location')
+                        <span class="badge-contract badge-location">À louer</span>
+                    @elseif($property->contrat === 'colocation')
+                        <span class="badge-contract badge-colocation">Colocation</span>
+                    @endif
 
                     <img src="{{ $first ? asset('storage/'.$first->image_path) : asset('images/default-property.jpg') }}"
                          class="card-img-top"
@@ -75,13 +84,53 @@
         @endforelse
     </div>
 </div>
+
+<!-- Déposer une annonce -->
+<section class="bg-light py-5 container">
+    <div class="container text-center">
+        <i class="bi bi-house-door-fill fs-1 tex-primary mb-3"></i>
+        <h2 class="fw-bold mb-3 tex-primary">Vous êtes propriétaire ?</h2>
+        <p class="mb-4 text-secondary">Publiez votre bien immobilier en quelques clics et atteignez un large public partout au Sénégal.</p>
+        <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg shadow px-4 py-2 rounded-pill">
+            <i class="bi bi-upload me-2"></i> Déposer une annonce
+        </a>
+    </div>   
+</section>
 @endsection
 
 @push('styles')
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+<style>
+/* Badge positionné en haut à droite de l'image */
+.badge-contract {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.25em 0.6em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    color: white;
+    z-index: 10;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
 
+/* Couleurs selon type de contrat */
+.badge-vente {
+    background-color: #28a745; /* vert */
+}
+
+.badge-location {
+    background-color: #007bff; /* bleu */
+}
+
+.badge-colocation {
+    background-color: #17a2b8; /* cyan */
+}
+</style>
 @endpush
 
 @push('scripts')
