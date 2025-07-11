@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TerrangaHome</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- CSS Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
 </head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <body>
+ 
+
   <nav class="navbar navbar-expand-lg bg-white h-45 fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand fw-bold tex-primary" href="{{ route('home') }}">TerrangaHome</a>
@@ -100,3 +107,4 @@
   
 </body>
 </html>
+

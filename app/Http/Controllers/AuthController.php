@@ -8,15 +8,25 @@ class AuthController extends Controller
 {
     public function showLoginForm()  { return view('auth.login'); }
 
-    public function login(Request $r)
-    {
-        $credentials = $r->only('email','password');
-        if (Auth::attempt($credentials, $r->filled('remember'))) {
-            $r->session()->regenerate();
-            return redirect()->intended('/dashboard');
+   public function login(Request $r)
+{
+    $credentials = $r->only('email','password');
+
+    if (Auth::attempt($credentials, $r->filled('remember'))) {
+        $r->session()->regenerate();
+
+        // 🔐 Redirection selon le rôle
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.dashboard');
         }
-        return back()->withErrors(['email'=>'Identifiants invalides'])->onlyInput('email');
+
+        return redirect()->route('dashboard');
     }
+
+    return back()->withErrors(['email'=>'Identifiants invalides'])->onlyInput('email');
+}
+
+
 
     public function logout(Request $request)
     {
