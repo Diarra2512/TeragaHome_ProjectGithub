@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-5 mt-5">
 
     <!-- Bouton retour -->
-    <a href="{{ route('properties.index') }}" class="btn btn-outline-success mb-4">
+    <a href="{{ route('properties.index') }}" class="btn btn-outline-primary  mb-4">
         ← Retour aux annonces
     </a>
 
@@ -45,11 +45,11 @@
     <!-- Titre + Prix -->
     <div class="mb-4 text-center">
         <h2 class="fw-bold text-dark">{{ $property->title }}</h2>
-        <p class="text-muted">{{ ucfirst($property->type) }} à {{ $property->city }}</p>
+        <p class="tex-primary">{{ ucfirst($property->type) }} à {{ $property->city }}</p>
         @if($property->adresse)
-            <p class="text-muted small">📍 Adresse : {{ $property->adresse }}</p>
+            <p class="tex-primary small">📍 Adresse : {{ $property->adresse }}</p>
         @endif
-        <h4 class="text-success fw-bold">
+        <h4 class="tex-primary fw-bold">
             {{ number_format($property->price, 0, ',', ' ') }} FCFA
             @if($property->contrat === 'location') /mois @endif
         </h4>
@@ -60,7 +60,7 @@
         @if($property->nb_chambres)
         <div class="col-md-3 mb-3">
             <div class="border rounded p-3 bg-white shadow-sm">
-                <i class="bi bi-door-closed fs-3 text-success"></i><br>
+                <i class="bi bi-door-closed fs-3 tex-primary"></i><br>
                 <strong>{{ $property->nb_chambres }}</strong><br>Chambres
             </div>
         </div>
@@ -69,7 +69,7 @@
         @if($property->nb_sdb)
         <div class="col-md-3 mb-3">
             <div class="border rounded p-3 bg-white shadow-sm">
-                <i class="bi bi-droplet fs-3 text-success"></i><br>
+                <i class="bi bi-droplet fs-3 tex-primary"></i><br>
                 <strong>{{ $property->nb_sdb }}</strong><br>Salles de bain
             </div>
         </div>
@@ -78,7 +78,7 @@
         @if($property->surface)
         <div class="col-md-3 mb-3">
             <div class="border rounded p-3 bg-white shadow-sm">
-                <i class="bi bi-bounding-box fs-3 text-success"></i><br>
+                <i class="bi bi-bounding-box fs-3 tex-primary"></i><br>
                 <strong>{{ $property->surface }} m²</strong><br>Surface
             </div>
         </div>
@@ -87,7 +87,7 @@
         @if($property->annee_construction)
         <div class="col-md-3 mb-3">
             <div class="border rounded p-3 bg-white shadow-sm">
-                <i class="bi bi-calendar fs-3 text-success"></i><br>
+                <i class="bi bi-calendar fs-3 tex-primary"></i><br>
                 <strong>{{ $property->annee_construction }}</strong><br>Année
             </div>
         </div>
@@ -96,13 +96,13 @@
 
     <!-- Description -->
     <div class="mb-5 p-4 bg-white rounded shadow-sm">
-        <h4 class="text-success fw-bold mb-3">Description</h4>
+        <h4 class="tex-primary fw-bold mb-3">Description</h4>
         <p class="text-dark">{{ $property->description }}</p>
     </div>
 
     <!-- Détails supplémentaires -->
     <div class="mb-5 p-4 bg-white rounded shadow-sm">
-        <h5 class="text-success fw-bold mb-3">Détails supplémentaires</h5>
+        <h5 class="tex-primary fw-bold mb-3">Détails supplémentaires</h5>
         <ul class="list-unstyled">
             <li><strong>Type de contrat :</strong> {{ ucfirst($property->contrat) }}</li>
             @if($property->charges)
@@ -118,11 +118,11 @@
     <!-- Équipements -->
     @if (!empty($property->equipements) && is_array($property->equipements))
     <div class="mb-5 p-4 bg-white rounded shadow-sm">
-        <h5 class="text-success fw-bold mb-3">Caractéristiques</h5>
+        <h5 class="tex-primary fw-bold mb-3">Caractéristiques</h5>
         <div class="row">
             @foreach ($property->equipements as $equipement)
             <div class="col-md-4 mb-2">
-                <i class="bi bi-check-circle text-success me-1"></i>
+                <i class="bi bi-check-circle tex-primary me-1"></i>
                 {{ ucfirst(str_replace('_', ' ', $equipement)) }}
             </div>
             @endforeach

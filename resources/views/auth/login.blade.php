@@ -3,8 +3,8 @@
 @section('content')
 <div class=" py-5 d-flex justify-content-center align-items-center min-vh-100 bg-cover" 
 style="background-image: url('/images/famille.jpg'); background-size: cover; background-position: center ; ">
-    <div class="card shadow-lg border-0 w-100" style="max-width: 500px;">
-        <div class="card-body p-4">
+    <div class="card shadow-lg border-0 w-100 " style="max-width: 500px;">
+        <div class="card-body  p-4">
             <h3 class="text-center mb-4 tex-primary">Se connecter</h3>
 
             @if(session('success'))

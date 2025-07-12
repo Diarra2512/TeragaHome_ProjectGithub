@@ -16,14 +16,15 @@
         <div>
             <h1 class="display-4 fw-bold mb-3">Bienvenue sur TerangaHome</h1>
             <p class="lead mb-4">PARCE QU’AU SÉNÉGAL, L’HOSPITALITÉ COMMENCE PAR UN BON TOIT.</p>
-            <p class="toprr">La chaleur d’un chez-soi, partout au Sénégal.
+            <p>La chaleur d’un chez-soi, partout au Sénégal. <br>
 Découvrez notre plateforme dédiée à la location et
 l’achat de logements au Sénégal. <br> Recherchez facilement des appartements, maisons,
 studios ou villas adaptés à vos besoins. <br>
 Grâce à notre interface fluide et à nos annonces vérifiées,
-trouvez un logement en toute confiance. <br> Commencez votre recherche maintenant. La Téranga
+trouvez un logement en toute confiance. <br> Commencez votre recherche maintenant. <br> La Téranga
 vous attend
 </p>
+   
          <!--   <a href="{{ route('properties.index') }}" class="btn btn-lg btn-hero px-4  btn-outline-primary py-2 mt-3 shadow rounded-pill fw-semibold">
                 <i class="bi bi-search me-2"></i> Explorer les biens
             </a>  -->
@@ -32,9 +33,9 @@ vous attend
 </div>
 
 
-<!-- Formulaire de recherche Modern -->
-<section class="bg-white py-4 container  position-relative search-section ">
-    <div class="container">
+         <!-- Formulaire de recherche Modern -->
+<section class="bg-white py-4  container position-relative search-section pt-5">
+    <div class="">
         <form action="{{ route('properties.index') }}" method="GET" class="row g-3 align-items-end justify-content-center">
             <div class="col-md-3">
                 <label class="form-label tex-primary fw-semibold">Ville</label>
@@ -63,7 +64,7 @@ vous attend
     </div>
 </section>
 <!-- Biens en vedette -->
-<section class="container my-5">
+<section class="container my-5 pt-5 pb-5">
     <h2 class="text-center mb-4 fw-bold tex-primary">Biens en vedette</h2>
     <div class="row g-4">
         @foreach ($latestProperties as $property)
@@ -97,8 +98,41 @@ vous attend
     </div>
 </section>
 
+<!-- Ce que nous offrons -->
+<section class="container my-5  arriere">
+  <div class="text-center mb-4" data-aos="fade-up">
+    <h2 class="section-title text-white">Ce que nous offrons</h2>
+    <p class="text-white">Nos services pour faciliter votre projet immobilier</p>
+  </div>
+
+  <div class="row g-4 ">
+    @foreach([
+      ['icon' => 'bi-house-heart', 'title' => 'Biens sélectionnés', 'desc' => 'Chaque bien est vérifié par notre équipe.'],
+      ['icon' => 'bi-geo-alt', 'title' => 'Zones couvertes', 'desc' => 'Nous couvrons les grandes villes du Sénégal.'],
+      ['icon' => 'bi-cash-coin', 'title' => 'Estimation gratuite', 'desc' => 'Nous estimons la valeur de votre bien.'],
+      ['icon' => 'bi-people', 'title' => 'Accompagnement humain', 'desc' => 'Notre équipe vous suit jusqu’à la signature.'],
+      ['icon' => 'bi-shield-lock', 'title' => 'Sécurité des données', 'desc' => 'Vos données sont confidentielles et protégées.'],
+      ['icon' => 'bi-lightning-charge', 'title' => 'Service réactif', 'desc' => 'Réponse rapide à toutes vos demandes.'],
+    ] as $item)
+      <div class="col-md-4">
+        <div class="flip-card ">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-white d-flex flex-column justify-content-center align-items-center text-center p-4 shadow rounded">
+              <i class="bi {{ $item['icon'] }} fs-1 mb-3 tex-primary"></i>
+              <h5 class="fw-bold">{{ $item['title'] }}</h5>
+            </div>
+            <div class="flip-card-back d-flex justify-content-center align-items-center text-center p-4 shadow rounded bg-prim text-white">
+              <p class="mb-0">{{ $item['desc'] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+</section>
+
 <!-- Déposer une annonce -->
-<section class="bg-light py-5 container">
+<section class=" py-5 container">
     <div class="container text-center">
         <i class="bi bi-house-door-fill fs-1 tex-primary mb-3"></i>
         <h2 class="fw-bold mb-3 tex-primary">Vous êtes propriétaire ?</h2>
@@ -114,31 +148,5 @@ vous attend
 
 @endpush
 @push('styles')
-<style>
-    .badge-contract {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        padding: 0.35em 0.7em;
-        font-size: 0.75rem;
-        font-weight: 600;
-        border-radius: 0.3rem;
-        color: white;
-        z-index: 10;
-        text-transform: uppercase;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
 
-    .badge-vente {
-        background-color: #28a745;
-    }
-
-    .badge-location {
-        background-color: #007bff;
-    }
-
-    .badge-colocation {
-        background-color: #17a2b8;
-    }
-</style>
 @endpush

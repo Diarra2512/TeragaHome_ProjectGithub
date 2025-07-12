@@ -18,43 +18,43 @@
             <!-- Infos de contact à droite -->
             <div class="col-md-6 d-flex align-items-center justify-content-center p-5">
                 <div style="max-width: 600px;">
-                    <h2 class="fw-bold text-success mb-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    <h2 class="fw-bold tex-primary mb-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                         Contactez-nous
                     </h2>
-                    <p class="text-secondary fs-5 mb-5" style="line-height: 1.6;">
+                    <p class="tex-primary fs-5 mb-5" style="line-height: 1.6;">
                         Nous sommes disponibles pour répondre à toutes vos questions. N’hésitez pas à nous contacter via les moyens ci-dessous.
                     </p>
 
                     <ul class="list-unstyled fs-5 mb-5">
                         <li class="mb-4 d-flex align-items-center">
-                            <i class="bi bi-geo-alt-fill text-success me-3 fs-3"></i>
+                            <i class="bi bi-geo-alt-fill tex-primary me-3 fs-3"></i>
                             <span>Dakar, Sénégal</span>
                         </li>
                         <li class="mb-4 d-flex align-items-center">
-                            <i class="bi bi-envelope-fill text-success me-3 fs-3"></i>
-                            <a href="mailto:contact@terrangahome.sn" class="text-success text-decoration-none fw-semibold">contact@terrangahome.sn</a>
+                            <i class="bi bi-envelope-fill tex-primary me-3 fs-3"></i>
+                            <a href="mailto:contact@terrangahome.sn" class="tex-primary text-decoration-none fw-semibold">contact@terrangahome.sn</a>
                         </li>
                         <li class="mb-4 d-flex align-items-center">
-                            <i class="bi bi-phone-fill text-success me-3 fs-3"></i>
-                            <a href="tel:+221770000000" class="text-success text-decoration-none fw-semibold">+221 77 000 00 00</a>
+                            <i class="bi bi-phone-fill tex-primary me-3 fs-3"></i>
+                            <a href="tel:+221770000000" class="tex-primary text-decoration-none fw-semibold">+221 77 000 00 00</a>
                         </li>
                         <li class="mb-4 d-flex align-items-center">
-                            <i class="bi bi-clock-fill text-success me-3 fs-3"></i>
+                            <i class="bi bi-clock-fill tex-primary me-3 fs-3"></i>
                             <span>Lun – Ven : 9h à 18h</span>
                         </li>
                     </ul>
 
                     <!-- Réseaux sociaux -->
                     <div class="d-flex align-items-center gap-4">
-                        <a href="#" class="social-icon d-flex justify-content-center align-items-center rounded-circle text-white bg-success"
+                        <a href="#" class="social-icon d-flex justify-content-center align-items-center rounded-circle text-white bg-prim"
                            style="width: 48px; height: 48px;">
                             <i class="bi bi-facebook fs-4"></i>
                         </a>
-                        <a href="#" class="social-icon d-flex justify-content-center align-items-center rounded-circle text-white bg-success"
+                        <a href="#" class="social-icon d-flex justify-content-center align-items-center rounded-circle text-white bg-prim"
                            style="width: 48px; height: 48px;">
                             <i class="bi bi-instagram fs-4"></i>
                         </a>
-                        <a href="#" class="social-icon d-flex justify-content-center align-items-center rounded-circle text-white bg-success"
+                        <a href="#" class="social-icon d-flex justify-content-center align-items-center rounded-circle text-white bg-prim"
                            style="width: 48px; height: 48px;">
                             <i class="bi bi-twitter fs-4"></i>
                         </a>

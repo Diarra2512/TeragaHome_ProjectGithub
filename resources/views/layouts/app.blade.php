@@ -6,6 +6,7 @@
     <title>TerangaHome</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- CSS Bootstrap -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
@@ -60,8 +61,9 @@
   <main class="w-100 p-0 m-0">
       @yield('content')
   </main>
+  
 
-  <footer class="bg-dark text-white pt-5 pb-4 ">
+  <footer class="bg-dark text-white pt-5 ">
     <div class="container text-md-left">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
@@ -105,8 +107,7 @@
     </div>
   </footer>
 
-
-  <!-- Back to Top Button -->
+<!-- Back to Top Button -->
 <button id="backToTopBtn" class="btn btn-primary position-fixed" style="bottom: 30px; right: 30px; display: none; z-index: 999;">
   <i class="bi bi-arrow-up"></i>
 </button>
@@ -132,10 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
-  @stack('styles')
-  @stack('scripts')
-  
-  
+
+@stack('styles')
+@stack('scripts')
 </body>
 </html>
 
