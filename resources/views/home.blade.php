@@ -34,7 +34,7 @@ vous attend
 
 
          <!-- Formulaire de recherche Modern -->
-<section class="bg-white py-4  container position-relative search-section pt-5">
+<section class="bg-white py-4  container position-relative search-section pt-5"> ">
     <div class="">
         <form action="{{ route('properties.index') }}" method="GET" class="row g-3 align-items-end justify-content-center">
             <div class="col-md-3">
@@ -142,6 +142,52 @@ vous attend
         </a>
     </div>   
 </section>
+<!-- Section Témoignages -->
+<!-- Section Témoignages -->
+<section class="py-5 bg-light" id="temoignages">
+    <div class="container">
+        <h2 class="text-center mb-5 tex-primary">Ils nous ont fait confiance</h2>
+
+        <div class="row justify-content-center">
+            @foreach ([
+                [
+                    'nom' => 'Salimata guaye',
+                    'poste' => 'Acheteuse à Dakar',
+                    'message' => 'TerrangaHome m’a trouvé un appartement parfait à un temps record !',
+                    'photo' => 'images/saly.jpg'
+                ],
+                [
+                    'nom' => 'Mamadou Diallo',
+                    'poste' => 'Investisseur',
+                    'message' => 'Service client excellent et transparence totale. Je recommande !',
+                    'photo' => 'images/souley.jpg'
+                ],
+                [
+                    'nom' => 'Aïssatou Sow',
+                    'poste' => 'Locataire à Pikine',
+                    'message' => 'Je vis dans un logement confortable grâce à leur accompagnement.',
+                    'photo' => 'images/ndeye.jpg'
+                ]
+            ] as $testimonial)
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <p class="card-text fst-italic">"{{ $testimonial['message'] }}"</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="{{ asset($testimonial['photo']) }}" class="rounded-circle me-3" alt="{{ $testimonial['nom'] }}" width="50" height="50">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">{{ $testimonial['nom'] }}</h6>
+                                    <small class="text-muted">{{ $testimonial['poste'] }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
 @endsection
 @push('styles')
